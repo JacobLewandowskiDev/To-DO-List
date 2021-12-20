@@ -28,8 +28,8 @@ This project was a good learning experience for me in regards to creating my fir
 
 ## User interface
 ### Main page of to do app with language selection and username prompt
-![](Screenshots/main.png)
+![](Screenshots/Main.png)
 ### Users todo list page
-![](Screenshots/user.png)
+![](Screenshots/User.png)
 ### Users todo list page after adding new to do item to list
 ![](Screenshots/new%20todo.png)
