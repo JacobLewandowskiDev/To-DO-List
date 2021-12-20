@@ -26,3 +26,6 @@ This project was a good learning experience for me in regards to creating my fir
 ### Future features
 - Remove To do's
 
+## User interface
+### Main page of to do app
+![] (Screenshots/main.png)
