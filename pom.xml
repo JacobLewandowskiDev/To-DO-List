@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <!-- Dependency versions -->
     <properties>
             <java.version>11</java.version>
             <junit.version>4.13</junit.version>
@@ -28,6 +29,7 @@
             <version>3.1.0</version>
         </dependency>
 
+        <!-- Webserver dependencies - Jetty -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-plus</artifactId>
@@ -40,6 +42,7 @@
             <version>${jetty.version}</version>
         </dependency>
 
+        <!-- Unit testing - Junit -->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -47,7 +50,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
@@ -63,19 +65,21 @@
             <version>${slf4j.version}</version>
         </dependency>
 
-        <!-- DB -->
+        <!-- DB configuration/viewer engine - H2 engine -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.197</version>
         </dependency>
 
+        <!-- ORM tool - Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.6.2.Final</version>
         </dependency>
 
+        <!-- Json to object - Jackson -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -88,6 +92,8 @@
 
     <build>
         <plugins>
+
+            <!-- Webserver - Jetty -->
             <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-maven-plugin -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
@@ -95,6 +101,7 @@
                 <version>${jetty.version}</version>
             </plugin>
 
+            <!-- Migration tool - FlyWay -->
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
@@ -103,6 +110,30 @@
                     <url>jdbc:h2:file:./db</url>
                     <user>sa</user>
                 </configuration>
+            </plugin>
+
+            <!-- Fat Jar builder - assembly -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.1</version>
+
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
             </plugin>
         </plugins>
     </build>
