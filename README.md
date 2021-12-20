@@ -27,5 +27,9 @@ This project was a good learning experience for me in regards to creating my fir
 - Remove To do's
 
 ## User interface
-### Main page of to do app
-![] (Screenshots/main.png)
+### Main page of to do app with language selection and username prompt
+![](Screenshots/main.png)
+### Users todo list page
+![](Screenshots/user.png)
+### Users todo list page after adding new to do item to list
+![](Screenshots/new%20todo.png)
